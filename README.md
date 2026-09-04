@@ -41,7 +41,7 @@ public/
 
 The navigation and contact destinations are presentation links. Replace the placeholder email destination before production use.
 
-The page shows a dismissible first-visit notice identifying it as an independent, non-commercial Conceptzilla portfolio concept rather than a live service or client-commissioned product.
+The page shows a dismissible first-visit notice stating that the concept is not for commercial use, identifying Shakuro as its portfolio creator, and clarifying that it is not a live service or client-commissioned product.
 
 ## Assets
 

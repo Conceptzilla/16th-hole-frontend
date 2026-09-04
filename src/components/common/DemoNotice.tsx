@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "conceptzilla-demo-notice-dismissed-v1";
+const STORAGE_KEY = "conceptzilla-demo-notice-dismissed-v2";
 
 export default function DemoNotice() {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,9 +36,9 @@ export default function DemoNotice() {
   return (
     <aside className="demo-notice" aria-label="Independent concept notice" aria-live="polite">
       <p>
-        <strong>Independent concept</strong>
+        <strong>This concept is not for commercial use</strong>
         <span>
-          This non-commercial demo was created by Conceptzilla for portfolio presentation. It is not a live service or a client-commissioned product.
+          This demo was created by Shakuro for portfolio presentation. It is not a live service or a client-commissioned product.
         </span>
       </p>
       <button type="button" onClick={dismiss}>
