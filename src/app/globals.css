@@ -20,7 +20,7 @@
   padding: 14px 14px 14px 18px;
   position: fixed;
   transform: translateX(-50%);
-  width: min(calc(100vw - 32px), 720px);
+  width: min(calc(100vw - 32px), 660px);
   z-index: 2147483647;
 }
 
