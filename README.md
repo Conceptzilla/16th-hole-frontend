@@ -41,6 +41,8 @@ public/
 
 The navigation and contact destinations are presentation links. Replace the placeholder email destination before production use.
 
+The page shows a dismissible first-visit notice identifying it as an independent, non-commercial Conceptzilla portfolio concept rather than a live service or client-commissioned product.
+
 ## Assets
 
 The repository contains project photography, generated imagery, Inter Tight, and Big Daily Short Trial font files. Confirm the applicable usage rights—especially the trial font license—before public or commercial deployment.

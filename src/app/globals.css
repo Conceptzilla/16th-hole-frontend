@@ -3,6 +3,62 @@
   --foreground: #292613;
 }
 
+.demo-notice {
+  align-items: center;
+  animation: demo-notice-in 360ms cubic-bezier(.22, 1, .36, 1) both;
+  backdrop-filter: blur(18px);
+  background: rgba(18, 18, 18, .94);
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 14px;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .24);
+  color: #fff;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  left: 50%;
+  padding: 14px 14px 14px 18px;
+  position: fixed;
+  transform: translateX(-50%);
+  width: min(calc(100vw - 32px), 720px);
+  z-index: 2147483647;
+}
+
+.demo-notice p { margin: 0; }
+.demo-notice strong { display: block; font-family: Arial, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.3; }
+.demo-notice span { color: rgba(255, 255, 255, .68); display: block; font-family: Arial, sans-serif; font-size: 12px; line-height: 1.45; margin-top: 3px; }
+.demo-notice button {
+  appearance: none;
+  background: #fff;
+  border: 0;
+  border-radius: 999px;
+  color: #111;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 54px;
+  padding: 10px 15px;
+  transition: background-color 180ms ease;
+}
+.demo-notice button:hover { background: rgba(255, 255, 255, .5); }
+.demo-notice button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+@keyframes demo-notice-in {
+  from { opacity: 0; transform: translate(-50%, 12px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (max-width: 560px) {
+  .demo-notice { align-items: flex-end; bottom: max(10px, env(safe-area-inset-bottom)); gap: 12px; padding: 13px; width: calc(100vw - 20px); }
+  .demo-notice span { font-size: 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-notice { animation: none; }
+}
+
 * {
   box-sizing: border-box;
 }
