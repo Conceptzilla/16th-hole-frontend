@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import DemoNotice from "@/components/common/DemoNotice";
 import FooterSection from "@/components/16th-hole/FooterSection";
 import MembershipSection from "@/components/16th-hole/MembershipSection";
 import MosaicSection from "@/components/16th-hole/MosaicSection";
@@ -35,6 +36,7 @@ const sans = localFont({
 export default function HomePage() {
   return (
     <main className={`${display.variable} ${sans.variable} sixteenth-page`}>
+      <DemoNotice />
       <header aria-label="Main navigation" className="sixteenth-header">
         <nav aria-label="Club sections" className="sixteenth-nav">
           <a className="sixteenth-text-link" href="#entrance">
