@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "16th Hole — Private Members Club",
   description:
     "A private golf society built around belonging, play and time well spent.",
+  icons: { icon: [{ url: "/favicon.png", type: "image/png" }] },
   openGraph: {
     title: "16th Hole — Private Members Club",
     description:
