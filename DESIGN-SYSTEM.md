@@ -25,7 +25,7 @@ The menu glyph is decorative, not an implemented menu. "Apply" navigates to the 
 ## Foundations
 
 - `src/app/tokens.css` contains named brand colors, control geometry and typography roles based on the Figma styles.
-- Display styles use Newsreader variable at weight 450, including true italic; Inter Tight is used for UI and body text. The Figma `display/font-weight` variable maps to `--font-weight-display`. Optical size 18 keeps browser rendering aligned with the approved Figma font specimen.
+- Display styles use Newsreader variable at weight 450, including true italic; Inter Tight is used for UI and body text. The Figma `display/font-weight` variable maps to `--font-weight-display`. The browser fixes the font's default optical size at 18 for stable responsive metrics. Figma's hosted family and the current upstream font have small metric differences; responsive line composition is reviewed at 390 px and 360 px rather than advertised as pixel-identical.
 - `src/app/globals.css` consumes those variables and contains responsive composition and motion rules.
 - One authored light brand theme is supplied. Tokens can be overridden at the page scope; no alternative theme has been designed or validated.
 - Font-size and line-height values match the rounded reference styles. Relative tracking, responsive dimensions and vector coordinates may legitimately produce fractional computed pixels.
