@@ -32,6 +32,19 @@ test("renders all eight landing compositions and local destinations", () => {
   assert.match(html, /noindex/);
 });
 
+test("preserves responsive Society typography and the italic highlight", () => {
+  const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
+  const tokens = readFileSync(new URL("../src/app/tokens.css", import.meta.url), "utf8");
+  assert.match(tokens, /--type-society-heading-fluid-size: clamp\(42px, 3\.611111vw, 69px\)/);
+  assert.match(tokens, /--type-society-body-fluid-size: clamp\(var\(--type-body-relaxed-size\), 1\.111111vw, 21px\)/);
+  const heading = css.match(/\.sixteenth-mosaic-copy h2 \{([^}]+)\}/)?.[1];
+  assert.match(heading, /font-size: var\(--type-society-heading-fluid-size\)/);
+  const italic = css.match(/\.sixteenth-mosaic-copy h2 em \{([^}]+)\}/)?.[1];
+  assert.match(italic, /background: var\(--sixteenth-highlight\)/);
+  assert.match(italic, /box-decoration-break: clone/);
+  assert.match(css, /\.sixteenth-mosaic-copy h2 \{\s*font-size: var\(--type-heading-mobile-large-regular-size\)/);
+});
+
 test("uses shared controls and does not expose an unimplemented menu", () => {
   for (const [name, count] of [["action-link", 2], ["nav-link", 6], ["people-link", 4], ["ritual-card", 3]]) {
     assert.equal(html.match(new RegExp('data-component="' + name + '"', "g"))?.length, count, name);

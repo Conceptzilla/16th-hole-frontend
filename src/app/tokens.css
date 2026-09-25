@@ -3,6 +3,15 @@
 :root {
   --font-weight-display: 450;
   --font-optical-size-display: 18;
+  /* Desktop Society scales with its viewport-based composition; 1440 px is the reference. */
+  --type-society-eyebrow-fluid-size: clamp(var(--type-label-eyebrow-size), 0.833333vw, 16px);
+  --type-society-heading-fluid-size: clamp(42px, 3.611111vw, 69px);
+  --type-society-body-fluid-size: clamp(var(--type-body-relaxed-size), 1.111111vw, 21px);
+  --type-society-eyebrow-line-ratio: 1.333333;
+  --type-society-heading-line-ratio: 1.076923;
+  --type-society-body-line-ratio: 1.75;
+  --radius-text-highlight: 4px;
+  --space-text-highlight-inline: 4px;
   --color-background-base: #eeece0;
   --color-background-highlight: #e4e1cf;
   --color-content-primary: #292613;
