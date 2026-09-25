@@ -2,15 +2,13 @@
 
 This concept is an evaluation example, not a licensed, redistribution-ready asset bundle.
 
-## Big Daily Short
+## Newsreader
 
-The display typography currently uses Big Daily Short Regular Trial and Italic Trial by Production Type. No commercial or redistribution license is supplied with this repository.
+Display typography uses Newsreader by The Newsreader Project Authors, distributed under the SIL Open Font License 1.1. Both upright and true italic variable fonts are included, used at weight 450 with optical size 18.
 
-The [Production Type EULA](https://productiontype.com/legal/eula), including its Trial addendum, limits trial use. A non-commercial label does not itself authorize public web embedding, redistribution or transfer of the font files.
+The unmodified files come from the [official Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/newsreader). The copyright notice and full license accompany the fonts in `src/app/fonts/Newsreader-OFL.txt`.
 
-Before publishing or transferring this package, obtain permission/licensing appropriate to the intended use, or replace the font in both design and code with an approved alternative. Do not assume that purchasing a standard web license permits including raw font files in a public source repository. Recipients must obtain the rights applicable to their own use.
-
-The existing Trial files have been retained in the local evaluation copy to preserve layout while that decision is pending; this is not a grant of rights.
+OFL permits use and embedding, including commercial use, and redistribution with the required copyright and license notice. The fonts may not be sold by themselves. Keep the accompanying license with redistributed font files.
 
 ## Inter Tight
 

@@ -14,14 +14,14 @@ const display = localFont({
   display: "swap",
   src: [
     {
-      path: "./fonts/BigDailyShort-Regular-Trial.otf",
+      path: "./fonts/Newsreader-Variable.ttf",
       style: "normal",
-      weight: "400",
+      weight: "200 800",
     },
     {
-      path: "./fonts/BigDailyShort-Italic-Trial.otf",
+      path: "./fonts/Newsreader-Italic-Variable.ttf",
       style: "italic",
-      weight: "400",
+      weight: "200 800",
     },
   ],
   variable: "--font-sixteenth-display",

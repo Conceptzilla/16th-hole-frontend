@@ -1,6 +1,8 @@
 /* Values mirror the named 16th Hole Figma text styles at 1440 px and 390 px.
    Relative tracking is intentional; responsive layout geometry is not rounded. */
 :root {
+  --font-weight-display: 450;
+  --font-optical-size-display: 18;
   --color-background-base: #eeece0;
   --color-background-highlight: #e4e1cf;
   --color-content-primary: #292613;

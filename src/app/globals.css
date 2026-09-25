@@ -214,8 +214,10 @@ img {
 .sixteenth-hero h1 {
   animation: sixteenth-copy-in 800ms 210ms cubic-bezier(0.22, 1, 0.36, 1) both;
   font-family: var(--font-sixteenth-display), Georgia, serif;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" var(--font-optical-size-display);
   font-size: var(--type-display-desktop-hero-regular-size);
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   letter-spacing: var(--type-display-desktop-hero-regular-tracking);
   line-height: var(--type-display-desktop-hero-regular-line);
   margin: 0;
@@ -225,7 +227,7 @@ img {
   background: var(--sixteenth-highlight);
   border-radius: 4px;
   box-decoration-break: clone;
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   padding: 0 7px 3px;
   -webkit-box-decoration-break: clone;
 }
@@ -444,8 +446,10 @@ img {
 
 .sixteenth-mosaic-copy h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" var(--font-optical-size-display);
   font-size: var(--type-heading-section-regular-size);
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   letter-spacing: var(--type-heading-section-regular-tracking);
   line-height: var(--type-heading-section-regular-line);
   margin-top: 1.667vw;
@@ -453,7 +457,7 @@ img {
 }
 
 .sixteenth-mosaic-copy h2 em {
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
 }
 
 .sixteenth-mosaic-description {
@@ -600,8 +604,10 @@ img {
 
 .sixteenth-pace-copy h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" var(--font-optical-size-display);
   font-size: var(--type-heading-section-regular-size);
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   letter-spacing: var(--type-heading-section-regular-tracking);
   line-height: var(--type-heading-section-regular-line);
   margin-top: 1.667vw;
@@ -612,7 +618,7 @@ img {
   background: var(--sixteenth-bg);
   border-radius: 4px;
   box-decoration-break: clone;
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   padding: 0 4px 2px;
   -webkit-box-decoration-break: clone;
 }
@@ -650,8 +656,10 @@ img {
 
 .sixteenth-pace-moment h3 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" var(--font-optical-size-display);
   font-style: italic;
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
 }
 
 .sixteenth-pace-moment p {
@@ -824,8 +832,10 @@ img {
 
 .sixteenth-membership-copy h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" var(--font-optical-size-display);
   font-size: var(--type-heading-section-regular-size);
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   letter-spacing: var(--type-heading-section-regular-tracking);
   line-height: var(--type-heading-section-regular-line);
   margin-top: 1.667vw;
@@ -836,7 +846,7 @@ img {
   border-radius: 4px;
   box-decoration-break: clone;
   color: var(--color-accent-gold);
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   padding: 0 4px 2px;
   -webkit-box-decoration-break: clone;
 }
@@ -982,8 +992,10 @@ img {
 
 .sixteenth-people-heading h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" var(--font-optical-size-display);
   font-size: var(--type-heading-section-regular-size);
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   letter-spacing: var(--type-heading-section-regular-tracking);
   line-height: var(--type-heading-section-regular-line);
   margin-top: 1.667vw;
@@ -993,7 +1005,7 @@ img {
   background: var(--sixteenth-bg);
   border-radius: 4px;
   box-decoration-break: clone;
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   padding: 0 4px 2px;
   -webkit-box-decoration-break: clone;
 }
@@ -1192,8 +1204,10 @@ img {
 
 .sixteenth-rituals-copy h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" var(--font-optical-size-display);
   font-size: var(--type-heading-section-regular-size);
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   letter-spacing: var(--type-heading-section-regular-tracking);
   line-height: var(--type-heading-section-regular-line);
   margin-top: 1.667vw;
@@ -1205,7 +1219,7 @@ img {
   background: rgba(245, 239, 229, 0.25);
   border-radius: 4px;
   box-decoration-break: clone;
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   padding: 0 4px 2px;
   -webkit-box-decoration-break: clone;
 }
@@ -1330,8 +1344,10 @@ img {
 
 .sixteenth-footer h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" var(--font-optical-size-display);
   font-size: var(--type-display-desktop-closing-size);
-  font-weight: 400;
+  font-weight: var(--font-weight-display);
   left: 3.333vw;
   letter-spacing: var(--type-display-desktop-closing-tracking);
   line-height: var(--type-display-desktop-closing-line);

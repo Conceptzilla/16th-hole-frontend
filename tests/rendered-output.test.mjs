@@ -1,9 +1,24 @@
 import assert from "node:assert/strict";
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import test from "node:test";
 
 const html = readFileSync(new URL("../.next/server/app/index.html", import.meta.url), "utf8");
 const text = html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ");
+
+test("bundles licensed variable typography without trial font assets", () => {
+  const fonts = new URL("../src/app/fonts/", import.meta.url);
+  assert.ok(readdirSync(fonts).every(name => !/trial|bigdaily/i.test(name)));
+  for (const name of ["Newsreader-Variable.ttf", "Newsreader-Italic-Variable.ttf"]) {
+    assert.ok(readFileSync(new URL(name, fonts)).length > 100_000);
+  }
+  assert.match(readFileSync(new URL("Newsreader-OFL.txt", fonts), "utf8"), /SIL OPEN FONT LICENSE Version 1.1/);
+  const tokens = readFileSync(new URL("../src/app/tokens.css", import.meta.url), "utf8");
+  assert.match(tokens, /--font-weight-display: 450;/);
+  const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
+  for (const block of css.matchAll(/[^{}]+\{[^{}]*font-family: var\(--font-sixteenth-display\)[^{}]*\}/g)) {
+    assert.match(block[0], /font-weight: var\(--font-weight-display\)/);
+  }
+});
 
 test("renders all eight landing compositions and local destinations", () => {
   for (const copy of ["Private members club", "The Setting", "Not everything needs knowing",

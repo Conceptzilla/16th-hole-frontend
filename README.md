@@ -4,7 +4,7 @@ Responsive landing page for a private members golf club, built with Next.js, Rea
 
 Design: [16th Hole — Figma](https://www.figma.com/design/3GJcd4U4SUlmF8x4zNYik1/?node-id=388-21647). Component correspondence, maturity and pairing scope are described in [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md).
 
-This evaluation draft is not redistribution-ready: the display font is a Trial font. Read [ASSET-NOTICE.md](ASSET-NOTICE.md) before publishing or transferring the package.
+Typography uses locally bundled Newsreader 450 (upright and italic) and Inter Tight, with their OFL licenses included. Photography and other concept assets have separate usage requirements; read [ASSET-NOTICE.md](ASSET-NOTICE.md) before reuse or transfer.
 
 ## Requirements
 
