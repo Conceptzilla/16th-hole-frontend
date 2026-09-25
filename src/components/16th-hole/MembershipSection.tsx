@@ -37,19 +37,21 @@ export default function MembershipSection() {
           <ActionLink className="sixteenth-membership-cta" href="#people">Apply</ActionLink>
         </div>
 
-        {membershipImages.map((image) => (
-          <figure
-            className={`sixteenth-membership-card sixteenth-membership-card--${image.className}`}
-            data-membership-card
-            key={image.className}
-          >
-            <div className="sixteenth-membership-card-tilt">
-              <div className="sixteenth-membership-card-frame">
-                <img src={image.src} alt={image.alt} />
+        <div className="sixteenth-membership-gallery">
+          {membershipImages.map((image) => (
+            <figure
+              className={`sixteenth-membership-card sixteenth-membership-card--${image.className}`}
+              data-membership-card
+              key={image.className}
+            >
+              <div className="sixteenth-membership-card-tilt">
+                <div className="sixteenth-membership-card-frame">
+                  <img src={image.src} alt={image.alt} />
+                </div>
               </div>
-            </div>
-          </figure>
-        ))}
+            </figure>
+          ))}
+        </div>
       </div>
     </section>
   );

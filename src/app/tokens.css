@@ -1,15 +1,16 @@
-/* Values mirror the named 16th Hole Figma text styles at 1440 px and 390 px.
-   Relative tracking is intentional; responsive layout geometry is not rounded. */
+/* Reference typography plus the approved optical corrections for Newsreader.
+   All section headings share one responsive scale; display headings stay separate. */
 :root {
   --font-weight-display: 450;
   --font-optical-size-display: 18;
-  /* Desktop Society scales with its viewport-based composition; 1440 px is the reference. */
-  --type-society-eyebrow-fluid-size: clamp(var(--type-label-eyebrow-size), 0.833333vw, 16px);
-  --type-society-heading-fluid-size: clamp(42px, 3.611111vw, 69px);
-  --type-society-body-fluid-size: clamp(var(--type-body-relaxed-size), 1.111111vw, 21px);
-  --type-society-eyebrow-line-ratio: 1.333333;
-  --type-society-heading-line-ratio: 1.076923;
-  --type-society-body-line-ratio: 1.75;
+  /* Shared section scale: heading 52/56, eyebrow 12/16, body 16/28 at 1440 px. */
+  --type-label-eyebrow-fluid-size: clamp(var(--type-label-eyebrow-size), 0.833333vw, 16px);
+  --type-label-eyebrow-fluid-line: calc(var(--type-label-eyebrow-fluid-size) * 4 / 3);
+  --type-heading-section-fluid-size: clamp(32px, 3.611111vw, 69px);
+  --type-heading-section-fluid-line: calc(var(--type-heading-section-fluid-size) * 14 / 13);
+  --type-body-relaxed-fluid-size: clamp(var(--type-body-relaxed-size), 1.111111vw, 21px);
+  --type-body-relaxed-fluid-line: calc(var(--type-body-relaxed-fluid-size) * 7 / 4);
+  --space-setting-label-to-body: 48px;
   --radius-text-highlight: 4px;
   --space-text-highlight-inline: 4px;
   --color-background-base: #eeece0;
@@ -56,11 +57,11 @@
   --type-display-mobile-hero-italic-size: 52px;
   --type-display-mobile-hero-italic-line: 52px;
   --type-display-mobile-hero-italic-tracking: -0.03em;
-  --type-heading-section-regular-size: 40px;
-  --type-heading-section-regular-line: 48px;
+  --type-heading-section-regular-size: 52px;
+  --type-heading-section-regular-line: 56px;
   --type-heading-section-regular-tracking: -0.03em;
-  --type-heading-section-italic-size: 40px;
-  --type-heading-section-italic-line: 48px;
+  --type-heading-section-italic-size: 52px;
+  --type-heading-section-italic-line: 56px;
   --type-heading-section-italic-tracking: -0.03em;
   --type-heading-mobile-large-regular-size: 44px;
   --type-heading-mobile-large-regular-line: 52px;

@@ -32,17 +32,31 @@ test("renders all eight landing compositions and local destinations", () => {
   assert.match(html, /noindex/);
 });
 
-test("preserves responsive Society typography and the italic highlight", () => {
+test("shares one responsive section heading scale and preserves Setting spacing", () => {
   const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
   const tokens = readFileSync(new URL("../src/app/tokens.css", import.meta.url), "utf8");
-  assert.match(tokens, /--type-society-heading-fluid-size: clamp\(42px, 3\.611111vw, 69px\)/);
-  assert.match(tokens, /--type-society-body-fluid-size: clamp\(var\(--type-body-relaxed-size\), 1\.111111vw, 21px\)/);
-  const heading = css.match(/\.sixteenth-mosaic-copy h2 \{([^}]+)\}/)?.[1];
-  assert.match(heading, /font-size: var\(--type-society-heading-fluid-size\)/);
-  const italic = css.match(/\.sixteenth-mosaic-copy h2 em \{([^}]+)\}/)?.[1];
-  assert.match(italic, /background: var\(--sixteenth-highlight\)/);
-  assert.match(italic, /box-decoration-break: clone/);
-  assert.match(css, /\.sixteenth-mosaic-copy h2 \{\s*font-size: var\(--type-heading-mobile-large-regular-size\)/);
+  assert.match(tokens, /--type-heading-section-fluid-size: clamp\(32px, 3\.611111vw, 69px\)/);
+  assert.match(tokens, /--space-setting-label-to-body: 48px/);
+  assert.doesNotMatch(css + tokens, /--type-society-/);
+  assert.match(css, /\.sixteenth-membership-copy \{[^}]*position: relative;/);
+  assert.match(css, /\.sixteenth-membership-gallery \{[^}]*margin-top: 32px;[^}]*position: relative;/);
+  const selectors = [
+    ".sixteenth-mosaic-copy h2", ".sixteenth-pace-copy h2",
+    ".sixteenth-membership-copy h2", ".sixteenth-people-heading h2",
+    ".sixteenth-rituals-copy h2",
+  ];
+  for (const selector of selectors) {
+    const blocks = [...css.matchAll(/([^{}]+)\{([^{}]+)\}/g)]
+      .filter(match => match[1].trim().split(/,\s*/).includes(selector) && /font-size:/.test(match[2]))
+      .map(match => match[2]);
+    assert.equal(blocks.length, 2, selector);
+    assert.match(blocks[0], /font-size: var\(--type-heading-section-fluid-size\)/, selector);
+    assert.match(blocks[0], /line-height: var\(--type-heading-section-fluid-line\)/, selector);
+    assert.match(blocks[1], /font-size: var\(--type-heading-mobile-large-regular-size\)/, selector);
+    assert.match(blocks[1], /line-height: var\(--type-heading-mobile-large-regular-line\)/, selector);
+  }
+  assert.equal(css.match(/top: calc\((?:157|116)px \+ var\(--type-label-eyebrow-line\) \+ var\(--space-setting-label-to-body\)\)/g)?.length, 2);
+  assert.match(css, /\.sixteenth-mosaic-copy h2 em \{\s*background: var\(--sixteenth-highlight\)/);
 });
 
 test("uses shared controls and does not expose an unimplemented menu", () => {
