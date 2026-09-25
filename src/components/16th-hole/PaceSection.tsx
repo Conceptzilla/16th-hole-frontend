@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useSectionReveal } from "./use-section-reveal";
 
 const morningPath =
   "M1.00018 456C27.4998 315.5 229.161 97.3395 463.5 1.00026";
@@ -8,32 +8,7 @@ const afternoonPath =
   "M0.50009 610.5C26.9997 470 228.661 251.839 463 155.5C778 26 923.499 16.9584 1271.5 0.50001";
 
 export default function PaceSection() {
-  const rootRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const node = rootRef.current;
-
-    if (!node) return;
-
-    if (!Reflect.has(window, "IntersectionObserver")) {
-      const revealFrame = window.requestAnimationFrame(() => setIsVisible(true));
-      return () => window.cancelAnimationFrame(revealFrame);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.16 },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  const { rootRef, isVisible } = useSectionReveal({ threshold: 0.16 });
 
   return (
     <section

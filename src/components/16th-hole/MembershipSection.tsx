@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useSectionReveal } from "./use-section-reveal";
+import { ActionLink } from "./ui";
 
 const membershipImages = [
   { className: "fairway-group", src: "/assets/16th-hole/membership-fairway-group.png", alt: "Members walking together across the fairway" },
@@ -10,49 +11,8 @@ const membershipImages = [
   { className: "putting", src: "/assets/16th-hole/membership-putting.png", alt: "A golfer lining up a putt" },
 ] as const;
 
-function assignRandomDelays(cards: HTMLElement[]) {
-  const order = cards.map((_, index) => index);
-
-  for (let index = order.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [order[index], order[swapIndex]] = [order[swapIndex], order[index]];
-  }
-
-  order.forEach((cardIndex, rank) => {
-    const jitter = Math.round(Math.random() * 130);
-    cards[cardIndex].style.setProperty("--membership-delay", `${560 + rank * 105 + jitter}ms`);
-  });
-}
-
 export default function MembershipSection() {
-  const rootRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const node = rootRef.current;
-
-    if (!node) return;
-
-    assignRandomDelays(Array.from(node.querySelectorAll<HTMLElement>("[data-membership-card]")));
-
-    if (!Reflect.has(window, "IntersectionObserver")) {
-      const revealFrame = window.requestAnimationFrame(() => setIsVisible(true));
-      return () => window.cancelAnimationFrame(revealFrame);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.14 },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  const { rootRef, isVisible } = useSectionReveal({ staggerSelector: "[data-membership-card]", delayProperty: "--membership-delay", startDelay: 560, stepDelay: 105, jitter: 130 });
 
   return (
     <section
@@ -65,15 +25,16 @@ export default function MembershipSection() {
         <div className="sixteenth-membership-copy">
           <p className="sixteenth-membership-eyebrow">Membership</p>
           <h2 id="membership-title">
-            Membership in the 16th hole is not transactional. <em>It is considered over time.</em>
+            <span className="membership-line">Membership in </span>
+            <span className="membership-line">the 16th hole is </span>
+            <span className="membership-line">not transactional. </span>
+            <em><span className="membership-line">It is considered </span><span className="membership-line">over time.</span></em>
           </h2>
           <p className="sixteenth-membership-description">
             We do not seek volume, visibility, or growth for its own sake. Each member is admitted
             for compatibility — not status.
           </p>
-          <a className="sixteenth-membership-cta" href="#people">
-            <span>Apply</span>
-          </a>
+          <ActionLink className="sixteenth-membership-cta" href="#people">Apply</ActionLink>
         </div>
 
         {membershipImages.map((image) => (

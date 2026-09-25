@@ -11,7 +11,7 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
-    "test": "npm run lint && npm run typecheck && npm run build"
+    "test": "npm run lint && npm run typecheck && npm run build && node --test tests/*.test.mjs"
   },
   "dependencies": {
     "next": "16.2.6",

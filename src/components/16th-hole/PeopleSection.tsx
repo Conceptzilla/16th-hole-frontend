@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { PeopleLink } from "./ui";
 
 const peopleImages = [
   {
@@ -80,15 +81,13 @@ export default function PeopleSection() {
 
       <div className="sixteenth-people-tabs" aria-label="People gallery">
         {peopleImages.map((image, index) => (
-          <button
-            className={index === activeIndex ? "is-active" : ""}
-            type="button"
-            aria-pressed={index === activeIndex}
+          <PeopleLink
+            selected={index === activeIndex}
             onClick={() => setActiveIndex(index)}
             key={image.label}
           >
             {image.label}
-          </button>
+          </PeopleLink>
         ))}
       </div>
 

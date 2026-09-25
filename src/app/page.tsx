@@ -8,6 +8,7 @@ import PeopleSection from "@/components/16th-hole/PeopleSection";
 import RitualsSection from "@/components/16th-hole/RitualsSection";
 import SettingCopy from "@/components/16th-hole/SettingCopy";
 import { gallery } from "@/components/16th-hole/content";
+import { ActionLink, SiteHeader } from "@/components/16th-hole/ui";
 
 const display = localFont({
   display: "swap",
@@ -37,34 +38,7 @@ export default function HomePage() {
   return (
     <main className={`${display.variable} ${sans.variable} sixteenth-page`}>
       <DemoNotice />
-      <header aria-label="Main navigation" className="sixteenth-header">
-        <nav aria-label="Club sections" className="sixteenth-nav">
-          <a className="sixteenth-text-link" href="#entrance">
-            Entrance
-          </a>
-          <a className="sixteenth-text-link" href="#society">
-            The society
-          </a>
-          <a className="sixteenth-text-link" href="#membership">
-            Membership
-          </a>
-        </nav>
-
-        <a aria-label="16th Hole home" className="sixteenth-mark" href="#entrance">
-          <span className="sixteenth-mark-number">
-            16<span>th</span>
-          </span>
-          <span className="sixteenth-mark-word">Hole</span>
-        </a>
-
-        <a
-          aria-label="Go to membership"
-          className="sixteenth-menu"
-          href="#membership"
-        >
-          <img alt="" src="/assets/16th-hole/menu-icon.svg" />
-        </a>
-      </header>
+      <SiteHeader />
 
       <section className="sixteenth-hero" id="entrance">
         <p className="sixteenth-eyebrow">Private members club</p>
@@ -73,9 +47,7 @@ export default function HomePage() {
           <br />
           The calm side of belonging.
         </h1>
-        <a className="sixteenth-cta" href="#society">
-          <span>Approach the club</span>
-        </a>
+        <ActionLink href="#society">Approach the club</ActionLink>
       </section>
 
       <section aria-label="Life at 16th Hole" className="sixteenth-gallery">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useSectionReveal } from "./use-section-reveal";
 
 const mosaicImages = [
   { className: "swing", src: "/assets/16th-hole/mosaic-swing.png", alt: "A golfer completing a full swing on the course" },
@@ -12,49 +12,8 @@ const mosaicImages = [
   { className: "putting", src: "/assets/16th-hole/mosaic-putting.png", alt: "Two golfers lining up a putt together" },
 ] as const;
 
-function assignRandomDelays(cards: HTMLElement[]) {
-  const order = cards.map((_, index) => index);
-
-  for (let index = order.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [order[index], order[swapIndex]] = [order[swapIndex], order[index]];
-  }
-
-  order.forEach((cardIndex, rank) => {
-    const jitter = Math.round(Math.random() * 110);
-    cards[cardIndex].style.setProperty("--mosaic-delay", `${430 + rank * 92 + jitter}ms`);
-  });
-}
-
 export default function MosaicSection() {
-  const rootRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const node = rootRef.current;
-
-    if (!node) return;
-
-    assignRandomDelays(Array.from(node.querySelectorAll<HTMLElement>("[data-mosaic-card]")));
-
-    if (!Reflect.has(window, "IntersectionObserver")) {
-      const revealFrame = window.requestAnimationFrame(() => setIsVisible(true));
-      return () => window.cancelAnimationFrame(revealFrame);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.14 },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  const { rootRef, isVisible } = useSectionReveal({ staggerSelector: "[data-mosaic-card]", delayProperty: "--mosaic-delay", startDelay: 430, stepDelay: 92, jitter: 110 });
 
   return (
     <section

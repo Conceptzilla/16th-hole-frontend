@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useSectionReveal } from "./use-section-reveal";
+import { RitualCard } from "./ui";
 
 const stageDuration = 5000;
 
@@ -36,28 +38,8 @@ const ritualStages = [
 ] as const;
 
 export default function RitualsSection() {
-  const rootRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const node = rootRef.current;
-
-    if (!node) return;
-
-    if (!Reflect.has(window, "IntersectionObserver")) {
-      const revealFrame = window.requestAnimationFrame(() => setIsVisible(true));
-      return () => window.cancelAnimationFrame(revealFrame);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.28 },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  const { rootRef, isVisible } = useSectionReveal({ threshold: 0.28, replay: true });
 
   useEffect(() => {
     if (!isVisible || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -98,23 +80,15 @@ export default function RitualsSection() {
           const status = index < activeIndex ? "complete" : index === activeIndex ? "active" : "pending";
 
           return (
-            <button
-              className="sixteenth-ritual-stage"
-              data-status={status}
-              type="button"
-              aria-pressed={index === activeIndex}
+            <RitualCard
+              status={status}
+              title={stage.title}
+              description={stage.description}
+              schedule={stage.schedule}
+              progressKey={`${activeIndex}-${index}`}
               onClick={() => setActiveIndex(index)}
               key={stage.title}
-            >
-              <span className="sixteenth-ritual-stage-track" aria-hidden="true">
-                <span key={`${activeIndex}-${index}`} />
-              </span>
-              <span className="sixteenth-ritual-stage-content">
-                <strong>{stage.title}</strong>
-                <span>{stage.description}</span>
-                <small>{stage.schedule}</small>
-              </span>
-            </button>
+            />
           );
         })}
       </div>

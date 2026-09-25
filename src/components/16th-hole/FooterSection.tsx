@@ -1,34 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useSectionReveal } from "./use-section-reveal";
+import { NavLink, sectionLinks } from "./ui";
 
 export default function FooterSection() {
-  const rootRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const node = rootRef.current;
-
-    if (!node) return;
-
-    if (!Reflect.has(window, "IntersectionObserver")) {
-      const revealFrame = window.requestAnimationFrame(() => setIsVisible(true));
-      return () => window.cancelAnimationFrame(revealFrame);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.18 },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  const { rootRef, isVisible } = useSectionReveal({ threshold: 0.18 });
 
   return (
     <footer ref={rootRef} className={`sixteenth-footer${isVisible ? " is-visible" : ""}`}>
@@ -41,10 +17,9 @@ export default function FooterSection() {
         <img src="/assets/16th-hole/footer-clubs.png" alt="" />
       </div>
 
+      <div className="sixteenth-footer-details">
       <nav className="sixteenth-footer-nav" aria-label="Footer navigation">
-        <a href="#entrance">Entrance</a>
-        <a href="#society">The society</a>
-        <a href="#membership">Membership</a>
+        {sectionLinks.map(link => <NavLink key={link.href} variant="footer" href={link.href}>{link.label}</NavLink>)}
       </nav>
 
       <div className="sixteenth-footer-contact">
@@ -55,6 +30,7 @@ export default function FooterSection() {
       <div className="sixteenth-footer-meta">
         <p>© 16th hole Society</p>
         <p>Discretion &amp; Privacy</p>
+      </div>
       </div>
     </footer>
   );

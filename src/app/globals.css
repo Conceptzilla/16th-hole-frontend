@@ -1,6 +1,6 @@
 :root {
-  --background: #eeece0;
-  --foreground: #292613;
+  --background: var(--color-background-base);
+  --foreground: var(--color-content-primary);
 }
 
 .demo-notice {
@@ -89,9 +89,9 @@ img {
 /* 16th Hole */
 
 .sixteenth-page {
-  --sixteenth-bg: #eeece0;
-  --sixteenth-highlight: #e4e1cf;
-  --sixteenth-ink: #292613;
+  --sixteenth-bg: var(--color-background-base);
+  --sixteenth-highlight: var(--color-background-highlight);
+  --sixteenth-ink: var(--color-content-primary);
   --sixteenth-setting-height: max(100dvh, 720px);
   --sixteenth-setting-top: max(1151px, calc(579px + 39.715vw));
   background: var(--sixteenth-bg);
@@ -127,17 +127,16 @@ img {
 
 .sixteenth-text-link,
 .sixteenth-cta,
-.sixteenth-mark,
-.sixteenth-menu {
+.sixteenth-mark {
   color: inherit;
   text-decoration: none;
 }
 
 .sixteenth-text-link {
-  font-size: 14px;
+  font-size: var(--type-control-navigation-size);
   font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 16px;
+  letter-spacing: var(--type-control-navigation-tracking);
+  line-height: var(--type-control-navigation-line);
   position: relative;
   white-space: nowrap;
 }
@@ -163,8 +162,7 @@ img {
 
 .sixteenth-text-link:focus-visible,
 .sixteenth-cta:focus-visible,
-.sixteenth-mark:focus-visible,
-.sixteenth-menu:focus-visible {
+.sixteenth-mark:focus-visible {
   outline: 1px solid currentColor;
   outline-offset: 6px;
 }
@@ -172,48 +170,25 @@ img {
 .sixteenth-mark {
   align-items: center;
   display: flex;
-  flex-direction: column;
   height: 44px;
   justify-self: center;
-  line-height: 1;
 }
 
-.sixteenth-mark-number {
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 20px;
-}
-
-.sixteenth-mark-number span {
-  font-size: 0.86em;
-  margin-left: 2px;
-}
-
-.sixteenth-mark-word {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  line-height: 12px;
-  text-transform: uppercase;
+.sixteenth-mark img {
+  height: 44px;
+  width: auto;
 }
 
 .sixteenth-menu {
-  height: 40px;
+  height: var(--control-height);
   justify-self: end;
-  position: relative;
-  width: 40px;
+  width: var(--control-height);
+  pointer-events: none;
 }
 
 .sixteenth-menu img {
-  height: 40px;
-  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
-  width: 40px;
-}
-
-.sixteenth-menu:hover img,
-.sixteenth-menu:focus-visible img {
-  transform: rotate(8deg);
+  height: 100%;
+  width: 100%;
 }
 
 .sixteenth-hero {
@@ -228,10 +203,10 @@ img {
 
 .sixteenth-eyebrow {
   animation: sixteenth-copy-in 720ms 120ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  font-size: 12px;
+  font-size: var(--type-label-eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.08em;
-  line-height: 16px;
+  letter-spacing: var(--type-label-eyebrow-tracking);
+  line-height: var(--type-label-eyebrow-line);
   margin: 0 0 26px;
   text-transform: uppercase;
 }
@@ -239,10 +214,10 @@ img {
 .sixteenth-hero h1 {
   animation: sixteenth-copy-in 800ms 210ms cubic-bezier(0.22, 1, 0.36, 1) both;
   font-family: var(--font-sixteenth-display), Georgia, serif;
-  font-size: clamp(58px, 4.94vw, 71px);
+  font-size: var(--type-display-desktop-hero-regular-size);
   font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 0.99;
+  letter-spacing: var(--type-display-desktop-hero-regular-tracking);
+  line-height: var(--type-display-desktop-hero-regular-line);
   margin: 0;
 }
 
@@ -258,26 +233,26 @@ img {
 .sixteenth-cta {
   align-items: center;
   animation: sixteenth-copy-in 720ms 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  background: #fff;
-  border-radius: 12px;
+  background: var(--color-surface-white);
+  border-radius: var(--radius-control);
   display: inline-flex;
-  font-size: 16px;
+  font-size: var(--type-control-button-size);
   font-weight: 500;
   justify-content: center;
-  letter-spacing: 0.02em;
-  line-height: 24px;
+  letter-spacing: var(--type-control-button-tracking);
+  line-height: var(--type-control-button-line);
   margin-top: 45px;
-  min-height: 44px;
-  padding: 10px 16px;
+  min-height: var(--control-height);
+  padding: var(--control-padding-y) var(--control-padding-x);
   transition: background-color 280ms ease;
 }
 
 .sixteenth-cta:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--color-control-hover);
 }
 
 .sixteenth-cta:active {
-  background: rgba(255, 255, 255, 0.36);
+  background: var(--color-control-pressed);
 }
 
 .sixteenth-gallery {
@@ -380,11 +355,11 @@ img {
 }
 
 .sixteenth-setting-label {
-  font-size: 12px;
+  font-size: var(--type-label-eyebrow-size);
   font-weight: 500;
   left: calc(50% - 262px);
-  letter-spacing: 0.08em;
-  line-height: 16px;
+  letter-spacing: var(--type-label-eyebrow-tracking);
+  line-height: var(--type-label-eyebrow-line);
   margin: 0;
   opacity: 0;
   position: absolute;
@@ -396,14 +371,15 @@ img {
 }
 
 .sixteenth-setting-body {
-  font-size: 24px;
+  font-size: var(--type-body-desktop-lead-size);
   font-weight: 400;
   left: 50%;
-  line-height: 1.3924;
+  line-height: var(--type-body-desktop-lead-line);
   position: absolute;
   top: 313px;
   transform: translateX(-50%);
   width: 524px;
+  letter-spacing: var(--type-body-desktop-lead-tracking);
 }
 
 .sixteenth-setting-body p {
@@ -458,20 +434,20 @@ img {
 }
 
 .sixteenth-mosaic-eyebrow {
-  font-size: clamp(12px, 0.833vw, 16px);
+  font-size: var(--type-label-eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.08em;
-  line-height: 1.333;
+  letter-spacing: var(--type-label-eyebrow-tracking);
+  line-height: var(--type-label-eyebrow-line);
   text-transform: uppercase;
   transition: opacity 900ms 60ms ease, transform 1100ms 60ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sixteenth-mosaic-copy h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
-  font-size: clamp(32px, 2.778vw, 53px);
+  font-size: var(--type-heading-section-regular-size);
   font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  letter-spacing: var(--type-heading-section-regular-tracking);
+  line-height: var(--type-heading-section-regular-line);
   margin-top: 1.667vw;
   transition: opacity 1100ms 180ms ease, transform 1350ms 180ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -481,10 +457,10 @@ img {
 }
 
 .sixteenth-mosaic-description {
-  font-size: clamp(16px, 1.111vw, 21px);
+  font-size: var(--type-body-relaxed-size);
   font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1.75;
+  letter-spacing: var(--type-body-relaxed-tracking);
+  line-height: var(--type-body-relaxed-line);
   margin-top: 1.111vw;
   transition: opacity 1200ms 320ms ease, transform 1500ms 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -615,19 +591,19 @@ img {
 }
 
 .sixteenth-pace-eyebrow {
-  font-size: clamp(12px, 0.833vw, 16px);
+  font-size: var(--type-label-eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.08em;
-  line-height: 1.333;
+  letter-spacing: var(--type-label-eyebrow-tracking);
+  line-height: var(--type-label-eyebrow-line);
   text-transform: uppercase;
 }
 
 .sixteenth-pace-copy h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
-  font-size: clamp(32px, 2.778vw, 53px);
+  font-size: var(--type-heading-section-regular-size);
   font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  letter-spacing: var(--type-heading-section-regular-tracking);
+  line-height: var(--type-heading-section-regular-line);
   margin-top: 1.667vw;
   white-space: nowrap;
 }
@@ -642,9 +618,9 @@ img {
 }
 
 .sixteenth-pace-description {
-  font-size: clamp(16px, 1.111vw, 21px);
-  letter-spacing: 0.02em;
-  line-height: 1.75;
+  font-size: var(--type-body-relaxed-size);
+  letter-spacing: var(--type-body-relaxed-tracking);
+  line-height: var(--type-body-relaxed-line);
   margin-top: 3.056vw;
 }
 
@@ -689,14 +665,16 @@ img {
 }
 
 .sixteenth-pace-moment--morning h3 {
-  font-size: 1.944vw;
-  line-height: 1.143;
+  font-size: var(--type-accent-large-size);
+  line-height: var(--type-accent-large-line);
+  letter-spacing: var(--type-accent-large-tracking);
 }
 
 .sixteenth-pace-moment--morning p {
-  font-size: 1.111vw;
-  line-height: 1.75;
+  font-size: var(--type-body-relaxed-size);
+  line-height: var(--type-body-relaxed-line);
   margin-top: 0.833vw;
+  letter-spacing: var(--type-body-relaxed-tracking);
 }
 
 .sixteenth-pace-moment--afternoon {
@@ -705,14 +683,16 @@ img {
 }
 
 .sixteenth-pace-moment--afternoon h3 {
-  font-size: 1.398vw;
-  line-height: 1.143;
+  font-size: var(--type-accent-small-size);
+  line-height: var(--type-accent-small-line);
+  letter-spacing: var(--type-accent-small-tracking);
 }
 
 .sixteenth-pace-moment--afternoon p {
-  font-size: 0.799vw;
-  line-height: 1.75;
+  font-size: var(--type-body-caption-size);
+  line-height: var(--type-body-caption-line);
   margin-top: 0.599vw;
+  letter-spacing: var(--type-body-caption-tracking);
 }
 
 .sixteenth-pace-photo {
@@ -835,19 +815,19 @@ img {
 }
 
 .sixteenth-membership-eyebrow {
-  font-size: clamp(12px, 0.833vw, 16px);
+  font-size: var(--type-label-eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.08em;
-  line-height: 1.333;
+  letter-spacing: var(--type-label-eyebrow-tracking);
+  line-height: var(--type-label-eyebrow-line);
   text-transform: uppercase;
 }
 
 .sixteenth-membership-copy h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
-  font-size: clamp(32px, 2.778vw, 53px);
+  font-size: var(--type-heading-section-regular-size);
   font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  letter-spacing: var(--type-heading-section-regular-tracking);
+  line-height: var(--type-heading-section-regular-line);
   margin-top: 1.667vw;
 }
 
@@ -855,62 +835,25 @@ img {
   background: var(--sixteenth-highlight);
   border-radius: 4px;
   box-decoration-break: clone;
-  color: #908032;
+  color: var(--color-accent-gold);
   font-weight: 400;
   padding: 0 4px 2px;
   -webkit-box-decoration-break: clone;
 }
 
 .sixteenth-membership-description {
-  font-size: clamp(16px, 1.111vw, 21px);
+  font-size: var(--type-body-relaxed-size);
   font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1.75;
+  letter-spacing: var(--type-body-relaxed-tracking);
+  line-height: var(--type-body-relaxed-line);
   margin-top: 1.111vw;
   max-width: 35.069vw;
 }
 
 .sixteenth-membership-cta {
-  align-items: center;
-  color: inherit;
-  display: inline-flex;
-  font-size: clamp(16px, 1.111vw, 21px);
-  font-weight: 500;
-  justify-content: center;
-  line-height: 1.5;
+  animation: none;
   margin-top: 2.222vw;
-  min-height: 44px;
   min-width: 120px;
-  padding: 10px 16px;
-  position: relative;
-  text-decoration: none;
-}
-
-.sixteenth-membership-cta::before {
-  background: rgba(255, 255, 255, 1);
-  border-radius: 12px;
-  content: "";
-  inset: 0;
-  position: absolute;
-  transition: background-color 320ms ease;
-}
-
-.sixteenth-membership-cta span {
-  position: relative;
-}
-
-.sixteenth-membership-cta:hover::before,
-.sixteenth-membership-cta:focus-visible::before {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.sixteenth-membership-cta:active::before {
-  background: rgba(255, 255, 255, 0.36);
-}
-
-.sixteenth-membership-cta:focus-visible {
-  outline: 1px solid currentColor;
-  outline-offset: 6px;
 }
 
 .sixteenth-membership-card {
@@ -1030,19 +973,19 @@ img {
 }
 
 .sixteenth-people-heading > p {
-  font-size: clamp(12px, 0.833vw, 16px);
+  font-size: var(--type-label-eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.08em;
-  line-height: 1.333;
+  letter-spacing: var(--type-label-eyebrow-tracking);
+  line-height: var(--type-label-eyebrow-line);
   text-transform: uppercase;
 }
 
 .sixteenth-people-heading h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
-  font-size: clamp(32px, 2.778vw, 53px);
+  font-size: var(--type-heading-section-regular-size);
   font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  letter-spacing: var(--type-heading-section-regular-tracking);
+  line-height: var(--type-heading-section-regular-line);
   margin-top: 1.667vw;
 }
 
@@ -1067,17 +1010,17 @@ img {
 }
 
 .sixteenth-people-copy h3 {
-  font-size: clamp(16px, 1.111vw, 21px);
+  font-size: var(--type-control-people-link-size);
   font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+  letter-spacing: var(--type-control-people-link-tracking);
+  line-height: var(--type-control-people-link-line);
 }
 
 .sixteenth-people-copy p {
-  font-size: clamp(16px, 1.111vw, 21px);
+  font-size: var(--type-body-relaxed-size);
   font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1.75;
+  letter-spacing: var(--type-body-relaxed-tracking);
+  line-height: var(--type-body-relaxed-line);
   margin-top: 1.111vw;
 }
 
@@ -1124,10 +1067,10 @@ img {
   border: 0;
   color: inherit;
   cursor: pointer;
-  font-size: clamp(16px, 1.111vw, 21px);
+  font-size: var(--type-control-people-link-size);
   font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+  letter-spacing: var(--type-control-people-link-tracking);
+  line-height: var(--type-control-people-link-line);
   padding: 0;
   position: relative;
   white-space: nowrap;
@@ -1163,11 +1106,11 @@ img {
 }
 
 .sixteenth-people-closing {
-  font-size: clamp(20px, 1.667vw, 31px);
+  font-size: var(--type-body-desktop-lead-size);
   font-weight: 400;
   left: 35.556vw;
-  letter-spacing: 0.02em;
-  line-height: 1.392;
+  letter-spacing: var(--type-body-desktop-lead-tracking);
+  line-height: var(--type-body-desktop-lead-line);
   position: absolute;
   top: 48.125vw;
   width: 33.819vw;
@@ -1239,20 +1182,20 @@ img {
 }
 
 .sixteenth-rituals-copy > p {
-  font-size: clamp(12px, 0.833vw, 16px);
+  font-size: var(--type-label-eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.08em;
-  line-height: 1.333;
+  letter-spacing: var(--type-label-eyebrow-tracking);
+  line-height: var(--type-label-eyebrow-line);
   padding-left: 0.278vw;
   text-transform: uppercase;
 }
 
 .sixteenth-rituals-copy h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
-  font-size: clamp(22px, 2.778vw, 53px);
+  font-size: var(--type-heading-section-regular-size);
   font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  letter-spacing: var(--type-heading-section-regular-tracking);
+  line-height: var(--type-heading-section-regular-line);
   margin-top: 1.667vw;
   white-space: nowrap;
 }
@@ -1348,32 +1291,36 @@ img {
 }
 
 .sixteenth-ritual-stage-content strong {
-  font-size: clamp(17px, 1.319vw, 22px);
+  font-size: var(--type-card-desktop-title-size);
   font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.474;
+  letter-spacing: var(--type-card-desktop-title-tracking);
+  line-height: var(--type-card-desktop-title-line);
 }
 
 .sixteenth-ritual-stage-content > span {
-  font-size: clamp(14px, 1.111vw, 18px);
+  font-size: var(--type-body-default-size);
   font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+  letter-spacing: var(--type-body-default-tracking);
+  line-height: var(--type-body-default-line);
   opacity: 0.7;
 }
 
 .sixteenth-ritual-stage-content small {
-  font-size: clamp(11px, 0.833vw, 14px);
+  font-size: var(--type-label-schedule-size);
   font-weight: 400;
-  letter-spacing: 0.08em;
-  line-height: 1.333;
+  letter-spacing: var(--type-label-schedule-tracking);
+  line-height: var(--type-label-schedule-line);
   margin-top: 0.556vw;
   text-transform: uppercase;
 }
 
+.sixteenth-footer-details {
+  display: contents;
+}
+
 .sixteenth-footer {
   background: #fff;
-  color: #131c1a;
+  color: var(--color-content-footer);
   height: 59.583vw;
   min-height: 760px;
   overflow: hidden;
@@ -1383,11 +1330,11 @@ img {
 
 .sixteenth-footer h2 {
   font-family: var(--font-sixteenth-display), Georgia, serif;
-  font-size: clamp(72px, 7.083vw, 110px);
+  font-size: var(--type-display-desktop-closing-size);
   font-weight: 400;
   left: 3.333vw;
-  letter-spacing: -0.03em;
-  line-height: 1.098;
+  letter-spacing: var(--type-display-desktop-closing-tracking);
+  line-height: var(--type-display-desktop-closing-line);
   margin: 0;
   position: absolute;
   top: 3.403vw;
@@ -1470,10 +1417,10 @@ img {
 }
 
 .sixteenth-footer-nav a {
-  font-size: clamp(11px, 0.833vw, 14px);
+  font-size: var(--type-label-footer-navigation-size);
   font-weight: 600;
-  letter-spacing: 0.08em;
-  line-height: 1.333;
+  letter-spacing: var(--type-label-footer-navigation-tracking);
+  line-height: var(--type-label-footer-navigation-line);
   text-transform: uppercase;
 }
 
@@ -1506,10 +1453,10 @@ img {
 }
 
 .sixteenth-footer-contact {
-  font-size: clamp(14px, 1.111vw, 18px);
+  font-size: var(--type-body-default-size);
   left: 3.333vw;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+  letter-spacing: var(--type-body-default-tracking);
+  line-height: var(--type-body-default-line);
   position: absolute;
   top: 53.958vw;
   z-index: 4;
@@ -1528,10 +1475,10 @@ img {
 
 .sixteenth-footer-meta {
   display: flex;
-  font-size: clamp(14px, 1.111vw, 18px);
+  font-size: var(--type-body-default-size);
   gap: 2.014vw;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+  letter-spacing: var(--type-body-default-tracking);
+  line-height: var(--type-body-default-line);
   opacity: 0.5;
   position: absolute;
   right: 2.222vw;
@@ -1716,15 +1663,23 @@ img {
 
   .sixteenth-eyebrow {
     margin-bottom: 22px;
+    font-size: var(--type-label-eyebrow-size);
+    line-height: var(--type-label-eyebrow-line);
+    letter-spacing: var(--type-label-eyebrow-tracking);
+
   }
 
   .sixteenth-hero h1 {
-    font-size: clamp(43px, 13.5vw, 58px);
-    line-height: 0.98;
+    font-size: var(--type-display-mobile-hero-regular-size);
+    line-height: var(--type-display-mobile-hero-regular-line);
+    letter-spacing: var(--type-display-mobile-hero-regular-tracking);
   }
 
   .sixteenth-cta {
     margin-top: 36px;
+    font-size: var(--type-control-button-size);
+    line-height: var(--type-control-button-line);
+    letter-spacing: var(--type-control-button-tracking);
   }
 
   .sixteenth-gallery {
@@ -1753,15 +1708,19 @@ img {
   .sixteenth-setting-label {
     left: 24px;
     top: 116px;
+    font-size: var(--type-label-eyebrow-size);
+    line-height: var(--type-label-eyebrow-line);
+    letter-spacing: var(--type-label-eyebrow-tracking);
   }
 
   .sixteenth-setting-body {
-    font-size: 21px;
+    font-size: var(--type-body-mobile-lead-size);
     left: 24px;
-    line-height: 1.38;
+    line-height: var(--type-body-mobile-lead-line);
     top: 210px;
     transform: none;
     width: calc(100% - 48px);
+    letter-spacing: var(--type-body-mobile-lead-tracking);
   }
 
   .sixteenth-mosaic {
@@ -1780,14 +1739,17 @@ img {
   }
 
   .sixteenth-mosaic-copy h2 {
-    font-size: clamp(38px, 11vw, 50px);
+    font-size: var(--type-heading-mobile-large-regular-size);
     margin-top: 22px;
+    line-height: var(--type-heading-mobile-large-regular-line);
+    letter-spacing: var(--type-heading-mobile-large-regular-tracking);
   }
 
   .sixteenth-mosaic-description {
-    font-size: 17px;
-    line-height: 1.55;
+    font-size: var(--type-body-mobile-introduction-size);
+    line-height: var(--type-body-mobile-introduction-line);
     margin-top: 18px;
+    letter-spacing: var(--type-body-mobile-introduction-tracking);
   }
 
   .sixteenth-mosaic-card {
@@ -1863,15 +1825,18 @@ img {
   }
 
   .sixteenth-pace-copy h2 {
-    font-size: clamp(38px, 11vw, 50px);
+    font-size: var(--type-heading-mobile-large-regular-size);
     margin-top: 22px;
     white-space: normal;
+    line-height: var(--type-heading-mobile-large-regular-line);
+    letter-spacing: var(--type-heading-mobile-large-regular-tracking);
   }
 
   .sixteenth-pace-description {
-    font-size: 16px;
-    line-height: 1.55;
+    font-size: var(--type-body-relaxed-size);
+    line-height: var(--type-body-relaxed-line);
     margin-top: 24px;
+    letter-spacing: var(--type-body-relaxed-tracking);
   }
 
   .sixteenth-pace-orbit--main,
@@ -1896,12 +1861,16 @@ img {
   }
 
   .sixteenth-pace-moment--morning h3 {
-    font-size: 24px;
+    font-size: var(--type-accent-medium-size);
+    line-height: var(--type-accent-medium-line);
+    letter-spacing: var(--type-accent-medium-tracking);
   }
 
   .sixteenth-pace-moment--morning p {
-    font-size: 14px;
+    font-size: var(--type-body-small-size);
     margin-top: 8px;
+    line-height: var(--type-body-small-line);
+    letter-spacing: var(--type-body-small-tracking);
   }
 
   .sixteenth-pace-moment--afternoon {
@@ -1910,12 +1879,16 @@ img {
   }
 
   .sixteenth-pace-moment--afternoon h3 {
-    font-size: 18px;
+    font-size: var(--type-accent-small-size);
+    line-height: var(--type-accent-small-line);
+    letter-spacing: var(--type-accent-small-tracking);
   }
 
   .sixteenth-pace-moment--afternoon p {
-    font-size: 11px;
+    font-size: var(--type-body-caption-size);
     margin-top: 6px;
+    line-height: var(--type-body-caption-line);
+    letter-spacing: var(--type-body-caption-tracking);
   }
 
   .sixteenth-pace-photo--morning {
@@ -1978,15 +1951,18 @@ img {
   }
 
   .sixteenth-membership-copy h2 {
-    font-size: clamp(38px, 11vw, 50px);
+    font-size: var(--type-heading-section-regular-size);
     margin-top: 22px;
+    line-height: var(--type-heading-section-regular-line);
+    letter-spacing: var(--type-heading-section-regular-tracking);
   }
 
   .sixteenth-membership-description {
-    font-size: 16px;
-    line-height: 1.55;
+    font-size: var(--type-body-default-size);
+    line-height: var(--type-body-default-line);
     margin-top: 18px;
     max-width: 100%;
+    letter-spacing: var(--type-body-default-tracking);
   }
 
   .sixteenth-membership-cta {
@@ -2064,8 +2040,10 @@ img {
   }
 
   .sixteenth-people-heading h2 {
-    font-size: clamp(36px, 10vw, 42px);
+    font-size: var(--type-heading-section-regular-size);
     margin-top: 22px;
+    line-height: var(--type-heading-section-regular-line);
+    letter-spacing: var(--type-heading-section-regular-tracking);
   }
 
   .sixteenth-people-copy {
@@ -2082,8 +2060,10 @@ img {
   }
 
   .sixteenth-people-copy p {
-    line-height: 1.55;
+    line-height: var(--type-body-default-line);
     margin-top: 10px;
+    font-size: var(--type-body-default-size);
+    letter-spacing: var(--type-body-default-tracking);
   }
 
   .sixteenth-people-slider {
@@ -2101,13 +2081,16 @@ img {
   }
 
   .sixteenth-people-tabs button {
-    font-size: 14px;
+    font-size: var(--type-control-mobile-people-link-size);
+    line-height: var(--type-control-mobile-people-link-line);
+    letter-spacing: var(--type-control-mobile-people-link-tracking);
   }
 
   .sixteenth-people-closing {
-    font-size: 21px;
-    line-height: 1.38;
+    font-size: var(--type-body-mobile-lead-size);
+    line-height: var(--type-body-mobile-lead-line);
     top: 970px;
+    letter-spacing: var(--type-body-mobile-lead-tracking);
   }
 
   .sixteenth-people-closing p + p {
@@ -2132,12 +2115,17 @@ img {
 
   .sixteenth-rituals-copy > p {
     padding-left: 4px;
+    font-size: var(--type-label-eyebrow-size);
+    line-height: var(--type-label-eyebrow-line);
+    letter-spacing: var(--type-label-eyebrow-tracking);
   }
 
   .sixteenth-rituals-copy h2 {
-    font-size: clamp(38px, 10.5vw, 48px);
+    font-size: var(--type-heading-section-regular-size);
     margin-top: 20px;
     white-space: normal;
+    line-height: var(--type-heading-section-regular-line);
+    letter-spacing: var(--type-heading-section-regular-tracking);
   }
 
   .sixteenth-rituals-stages {
@@ -2161,29 +2149,37 @@ img {
   }
 
   .sixteenth-ritual-stage-content strong {
-    font-size: 18px;
+    font-size: var(--type-card-mobile-title-size);
+    line-height: var(--type-card-mobile-title-line);
+    letter-spacing: var(--type-card-mobile-title-tracking);
   }
 
   .sixteenth-ritual-stage-content > span {
-    font-size: 14px;
+    font-size: var(--type-body-small-size);
+    line-height: var(--type-body-small-line);
+    letter-spacing: var(--type-body-small-tracking);
   }
 
   .sixteenth-ritual-stage-content small {
-    font-size: 11px;
+    font-size: var(--type-label-schedule-size);
     margin-top: 12px;
+    line-height: var(--type-label-schedule-line);
+    letter-spacing: var(--type-label-schedule-tracking);
   }
 
   .sixteenth-footer {
-    height: 820px;
-    min-height: 0;
+    height: auto;
+    min-height: 958px;
+    padding: 708px 20px 20px;
   }
 
   .sixteenth-footer h2 {
-    font-size: clamp(52px, 15vw, 70px);
+    font-size: var(--type-display-mobile-closing-size);
     left: 20px;
-    line-height: 1.02;
+    line-height: var(--type-display-mobile-closing-line);
     top: 48px;
     width: calc(100% - 40px);
+    letter-spacing: var(--type-display-mobile-closing-tracking);
   }
 
   .sixteenth-footer-clubs-shadow {
@@ -2207,13 +2203,17 @@ img {
   }
 
   .sixteenth-footer-nav a {
-    font-size: 11px;
+    font-size: var(--type-label-footer-navigation-size);
+    line-height: var(--type-label-footer-navigation-line);
+    letter-spacing: var(--type-label-footer-navigation-tracking);
   }
 
   .sixteenth-footer-contact {
-    font-size: 14px;
+    font-size: var(--type-body-small-size);
     left: 20px;
     top: 680px;
+    line-height: var(--type-body-small-line);
+    letter-spacing: var(--type-body-small-tracking);
   }
 
   .sixteenth-footer-contact a {
@@ -2222,12 +2222,52 @@ img {
 
   .sixteenth-footer-meta {
     bottom: 20px;
-    font-size: 12px;
+    font-size: var(--type-body-legal-size);
     gap: 16px;
     left: 20px;
     right: auto;
     top: auto;
+    line-height: var(--type-body-legal-line);
+    letter-spacing: var(--type-body-legal-tracking);
   }
+  .membership-line {
+    display: block;
+  }
+
+  .sixteenth-membership-copy h2 em {
+    background: none;
+    padding: 0;
+  }
+
+  .sixteenth-membership-copy h2 em .membership-line {
+    background: var(--sixteenth-highlight);
+    border-radius: 4px;
+    margin-inline: auto;
+    padding: 0 4px;
+    width: max-content;
+    max-width: 100%;
+  }
+
+  .sixteenth-footer-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-footer-groups);
+    position: relative;
+    z-index: 4;
+  }
+
+  .sixteenth-footer-nav,
+  .sixteenth-footer-contact,
+  .sixteenth-footer-meta {
+    position: static;
+  }
+
+  .sixteenth-footer-meta {
+    flex-wrap: wrap;
+    opacity: 1;
+    padding-top: 12px;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2299,4 +2339,10 @@ img {
     animation-delay: 0ms;
     animation-duration: 1ms;
   }
+}
+
+/* Keep the approved five-line membership heading at narrower phone widths. */
+@media (max-width: 375px) {
+  .sixteenth-hero h1 { font-size: 48px; line-height: 48px; }
+  .sixteenth-membership-copy h2 { font-size: 36px; line-height: 44px; }
 }

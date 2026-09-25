@@ -2,6 +2,10 @@
 
 Responsive landing page for a private members golf club, built with Next.js, React, TypeScript, and plain CSS.
 
+Design: [16th Hole — Figma](https://www.figma.com/design/3GJcd4U4SUlmF8x4zNYik1/?node-id=388-21647). Component correspondence, maturity and pairing scope are described in [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md).
+
+This evaluation draft is not redistribution-ready: the display font is a Trial font. Read [ASSET-NOTICE.md](ASSET-NOTICE.md) before publishing or transferring the package.
+
 ## Requirements
 
 - Node.js 22.13 or newer
@@ -10,7 +14,7 @@ Responsive landing page for a private members golf club, built with Next.js, Rea
 ## Getting started
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
@@ -45,4 +49,4 @@ The page shows a dismissible first-visit notice stating that the concept is not 
 
 ## Assets
 
-The repository contains project photography, generated imagery, Inter Tight, and Big Daily Short Trial font files. Confirm the applicable usage rights—especially the trial font license—before public or commercial deployment.
+Third-party assets retain their own licensing requirements. The portfolio disclaimer does not replace those permissions; see [ASSET-NOTICE.md](ASSET-NOTICE.md).

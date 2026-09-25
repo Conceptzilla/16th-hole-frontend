@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./tokens.css";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -8,7 +9,8 @@ export const metadata: Metadata = {
   title: "16th Hole — Private Members Club",
   description:
     "A private golf society built around belonging, play and time well spent.",
-  icons: { icon: [{ url: "/favicon.png", type: "image/png" }] },
+  icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
+  robots: { index: false, follow: false, nocache: true },
   openGraph: {
     title: "16th Hole — Private Members Club",
     description:
